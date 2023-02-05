@@ -10,7 +10,7 @@ vector_strings <- c("dog", "cat", "bird") # a vector of 3 string values
 
 # Find the mean
 mean(c(1, 2, 3, 4, 5)) # returns the average of the provided collection of values
-
+# 
 # randomly sample from a list of things
 sample(x = my_vector, size = 3) # returns 3 items sampled from the provided collection
 sample(x = 1:10, size = 100, replace = TRUE) # returns 100 things from the collection 1 through 10, while replacing values already chosen.  this allows us to pick multiple from the same collection

@@ -6,10 +6,10 @@ draw_first_letter <- function(n) {
 
 roll_3dice_sum14 <- function(n) {
   die <- 1:6
-  sums <- c()
+  sums <- NA
   for(i in 1:n) {
     rolls <- sample(x=die, size=3, replace=TRUE)
-    sums <- append(sums, sum(rolls))
+    sums[i] <- sum(rolls)
   }
   return(mean(sums==14))
 }
