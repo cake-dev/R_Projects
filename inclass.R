@@ -45,3 +45,17 @@ for (i in 1:length(mySamples)) {
   sum = sum + mySamples[i]
 }
 sum
+
+# simulate P(2 heads total in 5 in flips)
+heads_in_flips <- function (n){
+  results <- NA
+  for (i in 1:n) {
+    flips <- sample(c("H", "T"), 5, replace=TRUE)
+    bool_flips <- flips=="H"
+    count <- sum(bool_flips)
+    results[i] <- count==2
+    #mean(bool_flips==T)
+    #results[i] <- flips
+  }
+  return(mean(results)) # only observes true values bc they are 1, false is 0
+}
