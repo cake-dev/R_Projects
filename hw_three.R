@@ -18,7 +18,7 @@ draw_three_balls_all_same <- function(n) {
 
 arrow_expiriment <- function() {
   p_X <- 0.7;p_M <- 0.6;p_C <- 0.4
-  # "shoot" the arrows by generating a number betweeen 0 and 1
+  # "shoot" the arrows by generating a number between 0 and 1
   r_X <- runif(1)
   r_M <- runif(1)
   r_C <- runif(1)
@@ -43,7 +43,7 @@ arrow_expiriment <- function() {
 }
 
 shoot_arrows_who_hit <- function(n) {
-  # run the expiriment n times (expiriment says who hit when all three shoot with one arrow on the mark)
+  # run the experiment n times (experiment says who hit when all three shoot with one arrow on the mark)
   results <- replicate(n, arrow_expiriment())
   # get the proportion of times each archer hit
   # note: we sum over the results only where 1 hit was achieved (!= none in this case)
