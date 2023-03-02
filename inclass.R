@@ -74,3 +74,14 @@ roll2diceconditional <- function(n) {
   }
   return(mean(totals_min_seven[rolls_4]))
 }
+
+roll2dice_absvaldiff <- function(n) {
+  # returns a PMF of the probabilities of differences between 2 rolls
+  die <- 1:6
+  diffs <- NA
+  for(i in 1:n) {
+    roll <- sample(die, 2, T)
+    diffs[i] <- abs(roll[1] - roll[2])
+  }
+  return(table(diffs)/n)
+}
