@@ -85,3 +85,41 @@ roll2dice_absvaldiff <- function(n) {
   }
   return(table(diffs)/n)
 }
+
+game_winnings_expected <- function(n) {
+  d <- 1:6
+  profit <- c(2,3,5)
+  results <- NA
+  for(i in 1:n) {
+    roll <- sample(d, 1)
+    if(roll %in% profit) {
+      results[i] <- roll
+    } else {
+      results[i] <- 0
+    }
+  }
+  return(mean(results))
+}
+
+game_winnings_prob <- function(n) {
+  winnings <- NA
+  for(i in 1:n) {
+    rolls <- sample(1:6, 1)
+    winnings[i] <- 2*(rolls==2) + 3*(rolls==3) + 5*(rolls==5)
+  }
+  return((winnings))
+}
+
+plot_cum_mean <- function(values) {
+  cumAvg <- cumsum(values)/(1:length(values))
+  plot(x = 1:length(values), # data points
+       y = cumAvg, # data points
+       type = "l", # line graph
+       log='x', # set log scale on x axis
+       xlab="Number of trials", # x axis label
+       ylab="Cumulative mean",  # y axis label
+       lwd=1.2, # line width
+       cex.lab=1.3 # makes labels larger
+       )
+  abline(h=5/3, lty=2)
+}

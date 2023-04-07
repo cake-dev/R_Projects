@@ -28,11 +28,15 @@ experiment_2 <- function(n) {
 }
 
 experiment_3 <- function(n) {
-  items <- rep(c(1,0), times=c(3,7))
-  results <- NA
+  items <- rep(c("bad","good"), times=c(3,7))
+  results_5 <- NA
+  results_all <- NA
   for(i in 1:n) {
-    draws <- sample(items, 5, F)
-    results[i] <- sum(draws == 4)
+    for(j in 1:5) {
+      draws <- sample(items, 2, F)
+      results_5[j] <- sum(draws == "bad")
+    }
+    results_all[i] <- sum(results_5)
   }
-  return(mean(results))
+  return(mean(results_all == 4))
 }
