@@ -51,7 +51,7 @@ heads_in_flips <- function (n){
   results <- NA
   for (i in 1:n) {
     flips <- sample(c("H", "T"), 5, replace=TRUE)
-    bool_flips <- flips=="H"
+    # bool_flips <- flips=="H"
     count <- sum(bool_flips)
     results[i] <- count==2
     #mean(bool_flips==T)
